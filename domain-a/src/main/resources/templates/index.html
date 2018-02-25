@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Hello, ' + ${name} + '!'" />
+
+<script src="/js/jquery.js"/>
+
+
+<link rel="shortcut icon" type="image/png" href="/js/jasmine/lib/jasmine-core/jasmine_favicon.png"/>
+<link rel="stylesheet" type="text/css" href="/js/jasmine/lib/jasmine-core/jasmine.css"/>
+
+<script type="text/javascript" src="/js/jasmine/lib/jasmine-core/jasmine.js"></script>
+<script type="text/javascript" src="/js/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+<script type="text/javascript" src="/js/jasmine/lib/jasmine-core/boot.js"></script>
+
+<script type="text/javascript">
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+
+    var baseUrl = "http://localhsot:8080/";
+    var domainBUrl = "http://localhost:8081/";
+    $(document).ready(function () {
+        //--------------------------------
+        var data = "";
+        $.getJSON(domainBUrl + "test1", function (data1) {
+            data = data1;
+        });
+        describe("test1", function() {
+            setTimeout(function () {
+                it("test1 跨域测试", function(done) {
+                    expect(data).toEqual({
+                        msg: 'this is from domain b'
+                    });
+                    done();
+                });
+            });
+        }, 200);
+
+        //--------------------------------
+        var jsonpData = "";
+        $.ajax({
+            url: domainBUrl + "jsonpCall",
+            dataType: "jsonp",
+            success: function (data1) {
+                jsonpData = data1;
+            }
+        });
+        describe("jsonp", function() {
+            setTimeout(function () {
+                it("jsonp 调用测试", function(done) {
+                    expect(jsonpData).toEqual({
+                        msg: 'this is from domain b'
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+
+    });
+</script>
+
+</body>
+</html>
