@@ -20,7 +20,7 @@
 <script type="text/javascript">
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 
-    var baseUrl = "http://localhsot:8080/";
+    var domainAUrl = "http://localhsot:8080/";
     var domainBUrl = "http://localhost:8081/";
     $(document).ready(function () {
         //--------------------------------
@@ -193,6 +193,54 @@
                 testHeader1 = data1;
             }
         });
+        describe("testHeader1", function() {
+            setTimeout(function () {
+                it("testHeader1 调用测试", function(done) {
+                    expect(testHeader1).toEqual({
+                        msg: "testCookie"
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+        var testNginx = "";
+        $.ajax({
+            url: "http://b.com/testNginx",
+            type: "get",
+            success: function (data1) {
+                testNginx = data1;
+            }
+        });
+        describe("testNginx", function() {
+            setTimeout(function () {
+                it("testNginx 调用测试", function(done) {
+                    expect(testNginx).toEqual({
+                        msg: "testNginx"
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+        var bServerTest1 = "";
+        $.ajax({
+            url: "http://a.com/bServer/test1",
+            type: "get",
+            success: function (data1) {
+                bServerTest1 = data1;
+            }
+        });
+        describe("bServerTest1", function() {
+            setTimeout(function () {
+                it("bServerTest1 跨域测试", function(done) {
+                    expect(bServerTest1).toEqual({
+                        msg: 'this is from domain b'
+                    });
+                    done();
+                });
+            });
+        }, 200);
         //--------------------------------
     });
 </script>

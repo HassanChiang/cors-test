@@ -107,4 +107,12 @@ public class GreetingController {
         map.put("msg", testHeader);
         return map;
     }
+
+    @RequestMapping("/testNginx")
+    @ResponseBody
+    public Map<String, String> testNginx() {
+        Map<String, String> map = new HashMap<>();
+        map.put("msg", "testNginx");
+        return map;
+    }
 }
