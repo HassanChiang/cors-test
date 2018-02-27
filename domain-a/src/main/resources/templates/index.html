@@ -59,7 +59,141 @@
             });
         }, 200);
         //--------------------------------
+        var test2WithHeader = "";
+        $.getJSON(domainBUrl + "test2WithHeader", function (data1) {
+            test2WithHeader = data1;
+        });
+        describe("test2WithHeader", function() {
+            setTimeout(function () {
+                it("test2WithHeader 调用测试", function(done) {
+                    expect(test2WithHeader).toEqual({
+                        msg: 'this is from domain b'
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+        var test3WithHeader = "";
+        $.getJSON(domainBUrl + "test3WithHeader", function (data1) {
+            test3WithHeader = data1;
+        });
+        describe("test3WithHeader", function() {
+            setTimeout(function () {
+                it("test3WithHeader 调用测试", function(done) {
+                    expect(test3WithHeader).toEqual({
+                        msg: 'this is from domain b'
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+        var testPreflighted = "";
+        $.ajax({
+            url: domainBUrl + "testPreflighted",
+            contentType: "application/json",
+            type: "post",
+            data: JSON.stringify({
+                msg : "testPreflighted"
+            }),
+            success: function (data1) {
+                testPreflighted = data1;
+            }
+        });
+        describe("testPreflighted", function() {
+            setTimeout(function () {
+                it("testPreflighted 调用测试", function(done) {
+                    expect(testPreflighted).toEqual({
+                        msg: "testPreflighted"
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+        var testPreflighted2 = "";
+        $.ajax({
+            url: domainBUrl + "testPreflighted2",
+            contentType: "application/json",
+            type: "post",
+            data: JSON.stringify({
+                msg : "testPreflighted2"
+            }),
+            success: function (data1) {
+                testPreflighted2 = data1;
+            }
+        });
+        describe("testPreflighted2", function() {
+            setTimeout(function () {
+                it("testPreflighted2 调用测试", function(done) {
+                    expect(testPreflighted2).toEqual({
+                        msg: "testPreflighted2"
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
 
+        var testCookie1 = "";
+        $.ajax({
+            url: domainBUrl + "testCookie1",
+            type: "get",
+            xhrFields: {
+              withCredentials: true
+            },
+            success: function (data1) {
+                testCookie1 = data1;
+            }
+        });
+        describe("testCookie1", function() {
+            setTimeout(function () {
+                it("testCookie1 调用测试", function(done) {
+                    expect(testCookie1).toEqual({
+                        msg: "testCookie"
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+
+        var testCookie2 = "";
+        $.ajax({
+            url: domainBUrl + "testCookie2",
+            type: "get",
+            xhrFields: {
+              withCredentials: true
+            },
+            success: function (data1) {
+                testCookie2 = data1;
+            }
+        });
+        describe("testCookie2", function() {
+            setTimeout(function () {
+                it("testCookie2 调用测试", function(done) {
+                    expect(testCookie2).toEqual({
+                        msg: "testCookie"
+                    });
+                    done();
+                });
+            });
+        }, 200);
+        //--------------------------------
+
+        var testHeader1 = "";
+        $.ajax({
+            url: domainBUrl + "testHeader1",
+            type: "get",
+            headers: {
+              "testHeader": "testHeader"
+            },
+            success: function (data1) {
+                testHeader1 = data1;
+            }
+        });
+        //--------------------------------
     });
 </script>
 
