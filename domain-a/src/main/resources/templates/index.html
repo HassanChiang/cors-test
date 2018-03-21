@@ -28,7 +28,7 @@
         $.getJSON(domainBUrl + "test1", function (data1) {
             data = data1;
         });
-        describe("test1", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("test1 跨域测试", function(done) {
                     expect(data).toEqual({
@@ -48,7 +48,7 @@
                 jsonpData = data1;
             }
         });
-        describe("jsonp", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("jsonp 调用测试", function(done) {
                     expect(jsonpData).toEqual({
@@ -63,7 +63,7 @@
         $.getJSON(domainBUrl + "test2WithHeader", function (data1) {
             test2WithHeader = data1;
         });
-        describe("test2WithHeader", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("test2WithHeader 调用测试", function(done) {
                     expect(test2WithHeader).toEqual({
@@ -78,7 +78,7 @@
         $.getJSON(domainBUrl + "test3WithHeader", function (data1) {
             test3WithHeader = data1;
         });
-        describe("test3WithHeader", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("test3WithHeader 调用测试", function(done) {
                     expect(test3WithHeader).toEqual({
@@ -101,7 +101,7 @@
                 testPreflighted = data1;
             }
         });
-        describe("testPreflighted", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("testPreflighted 调用测试", function(done) {
                     expect(testPreflighted).toEqual({
@@ -124,7 +124,7 @@
                 testPreflighted2 = data1;
             }
         });
-        describe("testPreflighted2", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("testPreflighted2 调用测试", function(done) {
                     expect(testPreflighted2).toEqual({
@@ -147,7 +147,7 @@
                 testCookie1 = data1;
             }
         });
-        describe("testCookie1", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("testCookie1 调用测试", function(done) {
                     expect(testCookie1).toEqual({
@@ -170,7 +170,7 @@
                 testCookie2 = data1;
             }
         });
-        describe("testCookie2", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("testCookie2 调用测试", function(done) {
                     expect(testCookie2).toEqual({
@@ -193,7 +193,7 @@
                 testHeader1 = data1;
             }
         });
-        describe("testHeader1", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("testHeader1 调用测试", function(done) {
                     expect(testHeader1).toEqual({
@@ -212,7 +212,7 @@
                 testNginx = data1;
             }
         });
-        describe("testNginx", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("testNginx 调用测试", function(done) {
                     expect(testNginx).toEqual({
@@ -231,7 +231,7 @@
                 bServerTest1 = data1;
             }
         });
-        describe("bServerTest1", function() {
+        describe("", function() {
             setTimeout(function () {
                 it("bServerTest1 跨域测试", function(done) {
                     expect(bServerTest1).toEqual({
