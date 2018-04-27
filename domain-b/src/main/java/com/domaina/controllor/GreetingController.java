@@ -56,17 +56,31 @@ public class GreetingController {
     @ResponseBody
     public Map<String, String> testPreflighted(HttpServletResponse response, @RequestBody String body) {
         Map<String, String> map = new HashMap<>();
-        map.put("msg", body);
+        map.put("msg", (String) JSON.parseObject(body).get("msg"));
         return map;
     }
 
-    @PostMapping("/testPreflighted2")
+    @RequestMapping(value = "/testPreflighted2")
     @ResponseBody
     public Map<String, String> testPreflighted2(HttpServletResponse response, @RequestBody String body) {
         Map<String, String> map = new HashMap<>();
         map.put("msg", (String) JSON.parseObject(body).get("msg"));
         return map;
     }
+
+//    @RequestMapping(value = "/testPreflighted2", method = RequestMethod.OPTIONS)
+//    @ResponseBody
+//    public Map<String, String> testPreflighted21(HttpServletResponse response, @RequestBody String body) {
+//        response.addHeader("Access-Control-Allow-Origin", "*");
+//        response.addHeader("Access-Control-Allow-Methods", "*");
+//        response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+////        for testHeader1
+////        response.setHeader("Access-Control-Allow-Headers", "Content-Type, testHeader");
+//        response.addHeader("Access-Control-Max-Age", "3600");
+//        Map<String, String> map = new HashMap<>();
+//        map.put("msg", (String) JSON.parseObject(body).get("msg"));
+//        return map;
+//    }
 
     @RequestMapping("/testCookie1")
     @ResponseBody
@@ -87,7 +101,7 @@ public class GreetingController {
         response.addHeader("Access-Control-Allow-Origin", "http://localhost:8080");
         response.addHeader("Access-Control-Allow-Methods", "*");
 //        response.addHeader("Access-Control-Allow-Credentials", "true");
-//
+
 //        String origin = request.getHeader("Origin");
 //        if(!StringUtils.isEmpty(origin)){
 //            response.addHeader("Access-Control-Allow-Origin", origin);

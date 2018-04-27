@@ -7,3 +7,6 @@ spring:
       exclude: static/**,templates/**
   thymeleaf:
     cache: false
+#  mvc:
+#    dispatch-trace-request: true
+#    dispatch-options-request: true
