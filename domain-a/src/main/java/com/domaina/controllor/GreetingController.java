@@ -13,6 +13,7 @@ public class GreetingController {
     @RequestMapping("/index")
     public String greeting(HttpServletResponse response, Model model) {
         model.addAttribute("name", "CORS");
+//        response.addCookie(new Cookie("c1", "testCookie"));
         return "index";
     }
 }

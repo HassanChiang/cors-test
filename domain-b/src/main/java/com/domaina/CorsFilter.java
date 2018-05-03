@@ -22,7 +22,7 @@ public class CorsFilter implements Filter {
         response.addHeader("Access-Control-Allow-Headers", "Content-Type");
 //        for testHeader1
 //        response.setHeader("Access-Control-Allow-Headers", "Content-Type, testHeader");
-        response.addHeader("Access-Control-Max-Age", "0");
+        response.addHeader("Access-Control-Max-Age", "3600");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
